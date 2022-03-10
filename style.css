@@ -1,0 +1,25 @@
+.container {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(3, 5rem);
+  grid-template-rows: repeat(3, 5rem);
+  background-color: yellow;
+  margin-inline: auto;
+  width: max-content;
+}
+
+.card {
+  display: flex;
+  background-color: green;
+  font-size: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-turned {
+  background-color: red;
+}
+
+.card-out {
+  background-color: grey;
+}
