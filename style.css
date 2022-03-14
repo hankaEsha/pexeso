@@ -2,8 +2,8 @@
   display: grid;
   grid-gap: 5px;
   grid-template-columns: repeat(3, 5rem);
-  grid-template-rows: repeat(3, 5rem);
-  background-color: yellow;
+  grid-template-rows: repeat(10, 5rem);
+  /* background-color: yellow; */
   margin-inline: auto;
   width: max-content;
 }
@@ -22,4 +22,11 @@
 
 .card-out {
   background-color: grey;
+}
+
+.reset-button {
+  width: 5px;
+  height: 3px;
+  margin-left: auto;
+  background-color: bisque;
 }
