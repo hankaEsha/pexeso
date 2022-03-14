@@ -40,7 +40,7 @@ const turnCardsBack = () => {
 
 const gameOver = () => {
   if (document.querySelectorAll(".card-out").length === playgroundSideCount*playgroundSideCount) {
-    document.getElementById("message").style.display = "block";
+    document.getElementById("message").classList.remove("message-hidden");
     console.log("You won!");
   }
 };
