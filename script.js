@@ -27,7 +27,7 @@ const play = (size) => {
   return cards
 };
 
-let cards = play(6);
+let cards = play(8);
 
 const turnCardsBack = () => {
   console.log("obratit karty", cardsTurned);
@@ -39,7 +39,8 @@ const turnCardsBack = () => {
 
 const gameOver = () => {
   if (document.querySelectorAll("card-out").length === document.querySelectorAll("card").length) {
-    console.log("Game over!");
+    document.getElementById("message").style.display = "block";
+    console.log("You won!");
   }
 };
 

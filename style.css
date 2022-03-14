@@ -1,32 +1,91 @@
+html {
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #f5f5f5;
+  color: #2a2b2e;
+  font-size: 1rem;
+  font-family: "Nunito", "Arial Rounded", "Arial", sans-serif;
+}
+
+h1,h2 {
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-top: 4rem;
+  margin-bottom: 0;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+h1::after {
+  color: #f7c335;
+  content: "• •";
+  font-size: 20px;
+  padding-right: 1rem;
+  display: block;
+  text-align: center;
+  margin-top: -1rem;
+}
+
+.x {
+  color: #f7c335;
+}
+
 .container {
   display: grid;
-  grid-gap: 5px;
-  grid-template-columns: repeat(3, 5rem);
-  grid-template-rows: repeat(10, 5rem);
+  grid-gap: 6px;
+  grid-template-columns: repeat(4, 5rem);
+  grid-template-rows: repeat(4, 5rem);
   /* background-color: yellow; */
+  margin-top: 2rem; 
+  margin-bottom: 1.5rem;
   margin-inline: auto;
   width: max-content;
 }
 
 .card {
   display: flex;
-  background-color: green;
+  background-image: linear-gradient(to right, #008000, #009400, #008000);
   font-size: 2rem;
   align-items: center;
   justify-content: center;
+  color: hsl(0deg 0% 100% / 20%);
 }
 
 .card-turned {
-  background-color: red;
+  /* transition: ; */
+  background-image: none;
+  background-color: rgb(255, 0, 0);
+  color: hsl(0deg 0% 100%);
 }
 
 .card-out {
+  background-image: none;
   background-color: grey;
 }
 
+.message {
+  color: #f7c335;
+  text-align: center;
+  display: none;
+}
+
 .reset-button {
-  width: 5px;
-  height: 3px;
-  margin-left: auto;
-  background-color: bisque;
+  display: block;
+  margin: 1rem auto;
+  padding: 0.5rem 1rem;
+  background-color: #f7c335;
+  color: black;
+  border: none;
+  border-radius: 6px;
 }
