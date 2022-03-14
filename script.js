@@ -1,6 +1,6 @@
 console.clear();
 
-const playgroundSideCount = 4;
+const playgroundSideCount = 6;
 let cardsTurned = [];
 
 const play = (size) => {
@@ -28,7 +28,7 @@ const play = (size) => {
   return cards
 };
 
-let cards = play(2*playgroundSideCount);
+let cards = play(playgroundSideCount*playgroundSideCount/2);
 
 const turnCardsBack = () => {
   console.log("obratit karty", cardsTurned);
