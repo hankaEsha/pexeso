@@ -1,5 +1,6 @@
 console.clear();
 
+const playgroundSideCount = 4;
 let cardsTurned = [];
 
 const play = (size) => {
@@ -27,7 +28,7 @@ const play = (size) => {
   return cards
 };
 
-let cards = play(8);
+let cards = play(2*playgroundSideCount);
 
 const turnCardsBack = () => {
   console.log("obratit karty", cardsTurned);
@@ -38,7 +39,7 @@ const turnCardsBack = () => {
 };
 
 const gameOver = () => {
-  if (document.querySelectorAll("card-out").length === document.querySelectorAll("card").length) {
+  if (document.querySelectorAll(".card-out").length === playgroundSideCount*playgroundSideCount) {
     document.getElementById("message").style.display = "block";
     console.log("You won!");
   }
@@ -47,7 +48,7 @@ const gameOver = () => {
 const game = (event) => {
   // console.log(event.target.classList.contains("card-turned"));
   // console.log(event.target.classList.contains("card-out"));
-  if (!event.target.classList.contains("card-turned") && !event.target.classList.contains ("card-out")) {
+  if (!event.target.classList.contains("card-turned") && !event.target.classList.contains("card-out")) {
     cardsTurned.push(event.target);
     event.target.classList.add("card-turned");
     console.log("if/cardTurned", event.target.classList);
