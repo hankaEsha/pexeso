@@ -8,9 +8,13 @@
   <body>
     <h1>Pe<span class="x">x</span>eso</h1>
     <h2>Hra pro malé i velké</h2>
+    <noscript>
+      <p class="message">Pro tuto hru potřebujete mít zapnutý JavaScript.</p>
+    </noscript>
     <div id="playground" class="container"></div>
-    <div id="message" class="message message-hidden">You won! &#x1F603</div>
-    <button class="reset-button">Play</button>
+    <p id="subtitle" class="subtitle"></p>
+    <button id="play-reset" class="play-reset">Nová hra</button>
+    <div id="message" class="message message-hidden">Výhra! &#x1F603</div>
     <script src="./script.js"></script>
   </body>
 </html>

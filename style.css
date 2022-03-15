@@ -13,7 +13,8 @@ body {
   font-family: "Nunito", "Arial Rounded", "Arial", sans-serif;
 }
 
-h1,h2 {
+h1,
+h2 {
   text-align: center;
 }
 
@@ -44,13 +45,22 @@ h1::after {
 .container {
   display: grid;
   grid-gap: 6px;
-  grid-template-columns: repeat(4, 5rem);
-  grid-template-rows: repeat(4, 5rem);
-  /* background-color: yellow; */
-  margin-top: 2rem; 
+  margin-top: 2rem;
   margin-bottom: 1.5rem;
   margin-inline: auto;
   width: max-content;
+}
+
+.container-small {
+  grid-template: repeat(2, 5rem) / repeat(2, 5rem);
+}
+
+.container-medium {
+  grid-template: repeat(4, 5rem) / repeat(4, 5rem);
+}
+
+.container-large {
+  grid-template: repeat(8, 5rem) / repeat(8, 5rem);
 }
 
 .card {
@@ -74,6 +84,11 @@ h1::after {
   background-color: grey;
 }
 
+.subtitle {
+  color: #f7c335;
+  text-align: center;
+}
+
 .message {
   color: #f7c335;
   text-align: center;
@@ -83,7 +98,7 @@ h1::after {
   display: none;
 }
 
-.reset-button {
+.play-reset {
   display: block;
   margin: 1rem auto;
   padding: 0.5rem 1rem;
