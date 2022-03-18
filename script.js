@@ -18,7 +18,7 @@ const gameVariants = {
   },
 };
 
-let gameVariant = "small";
+let gameVariant = "large";
 
 const playgroundSideCount = gameVariants[gameVariant].playgroundSideCount;
 
@@ -28,6 +28,17 @@ document
 
 document.getElementById("subtitle").innerHTML =
   gameVariants[gameVariant].subtitle;
+
+
+// Create a new, plain <button> element
+let playAgainButton = document.createElement("button");
+// Get the reference child element
+let winMessage = document.getElementById("message");
+
+// Get the parent element and insert the playAgainButton before the winMessage node
+winMessage.parentNode.insertBefore(playAgainButton, winMessage);
+playAgainButton.classList.add("play-reset");
+playAgainButton.innerHTML = "Nová hra";
 
 let cardsTurned = [];
 
@@ -95,8 +106,7 @@ const play = () => {
 
 play();
 
-let playButton = document.getElementById("play-reset");
-playButton.addEventListener("click", play);
+playAgainButton.addEventListener("click", play);
 
 const turnCardsBack = () => {
   console.log("obratit karty", cardsTurned);
