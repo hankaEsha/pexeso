@@ -29,7 +29,7 @@ h2 {
 }
 
 h1::after {
-  color: #f7c335;
+  color: #F2B101;
   content: "• •";
   font-size: 20px;
   padding-right: 1rem;
@@ -39,7 +39,7 @@ h1::after {
 }
 
 .x {
-  color: #f7c335;
+  color: #F2B101;
 }
 
 .container {
@@ -85,12 +85,12 @@ h1::after {
 }
 
 .subtitle {
-  color: #f7c335;
+  color: #008000;
   text-align: center;
 }
 
 .message {
-  color: #f7c335;
+  color: #008000;
   text-align: center;
 }
 
@@ -102,8 +102,9 @@ h1::after {
   display: block;
   margin: 1rem auto;
   padding: 0.5rem 1rem;
-  background-color: #f7c335;
+  background-color: #F2B101;
   color: black;
   border: none;
   border-radius: 6px;
+  cursor: pointer;
 }
