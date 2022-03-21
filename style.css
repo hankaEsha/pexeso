@@ -87,6 +87,7 @@ h1::after {
 .subtitle {
   color: #008000;
   text-align: center;
+  margin-top: 3rem;
 }
 
 .message {
@@ -98,7 +99,13 @@ h1::after {
   display: none;
 }
 
-.play-reset {
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  margin-inline: 20rem;
+}
+
+.reset-button {
   display: block;
   margin: 1rem auto;
   padding: 0.5rem 1rem;

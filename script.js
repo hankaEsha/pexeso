@@ -4,19 +4,19 @@ const gameVariants = {
   small: {
     className: "container-small",
     playgroundSideCount: 2,
-    subtitle: "Hrajete hru pro malé nebo začínající hráče",
+    subtitle: "Hrajete malou hru pro malé nebo začínající hráče.",
     buttonText: "Nová malá hra",
   },
   medium: {
     className: "container-medium",
     playgroundSideCount: 4,
-    subtitle: "Hrajete hru pro odvážnější hráče",
+    subtitle: "Hrajete středně náročnou hru pro odvážnější hráče.",
     buttonText: "Nová střední hra",
   },
   large: {
     className: "container-large",
     playgroundSideCount: 8,
-    subtitle: "Hrajete hru pro pexeso profíky",
+    subtitle: "Hrajete velkou hru pro pexeso profíky.",
     buttonText: "Nová velká hra",
   },
 };
@@ -93,13 +93,11 @@ for (const variant in gameVariants) {
   // Create a new, plain <button> element
   let gameVariantButton = document.createElement("button");
   gameVariantButton.innerHTML = gameVariants[variant].buttonText;
-  gameVariantButton.classList.add("play-reset");
+  gameVariantButton.classList.add("reset-button");
   gameVariantButton.dataset.gameVariant = variant;
   gameVariantButton.addEventListener("click", play);
-  // Get the reference child element
-  let winMessage = document.getElementById("message");
-  // Get the parent element and insert the button element before the referenced child element
-  winMessage.parentNode.insertBefore(gameVariantButton, winMessage);
+  // Get the parent element and insert the button element
+  document.getElementById("buttons-container").appendChild(gameVariantButton);
 }
 
 play();
