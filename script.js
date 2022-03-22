@@ -1,5 +1,3 @@
-console.clear();
-
 const gameVariants = {
   small: {
     className: "container-small",
@@ -24,6 +22,7 @@ const gameVariants = {
 let cardsTurned = [];
 let gameVariant = gameVariants.medium;
 const playground = document.getElementById("playground");
+const message = document.getElementById("message");
 
 const game = (event) => {
   if (
@@ -47,8 +46,25 @@ const game = (event) => {
   gameOver();
 };
 
+const turnCardsBack = () => {
+  cardsTurned.forEach((card) => {
+    card.classList.remove("card-turned");
+  });
+  cardsTurned = [];
+};
+
+const gameOver = () => {
+  let playgroundSideCount = gameVariant.playgroundSideCount;
+  if (
+    document.querySelectorAll(".card-out").length ===
+    playgroundSideCount * playgroundSideCount
+  ) {
+    message.classList.remove("message-hidden");
+  }
+};
+
 const generatePlayground = (size) => {
-  document.getElementById("message").classList.add("message-hidden");
+  message.classList.add("message-hidden");
   playground.innerHTML = "";
   let numbersList = [];
   for (let i = 0; i < size; i++) {
@@ -89,7 +105,8 @@ const play = (event) => {
   generatePlayground((playgroundSideCount * playgroundSideCount) / 2);
 };
 
-for (const variant in gameVariants) {
+const generateGameVariantButton = () => 
+{for (const variant in gameVariants) {
   // Create a new, plain <button> element
   let gameVariantButton = document.createElement("button");
   gameVariantButton.innerHTML = gameVariants[variant].buttonText;
@@ -98,23 +115,7 @@ for (const variant in gameVariants) {
   gameVariantButton.addEventListener("click", play);
   // Get the parent element and insert the button element
   document.getElementById("buttons-container").appendChild(gameVariantButton);
-}
+}};
 
+generateGameVariantButton();
 play();
-
-const turnCardsBack = () => {
-  cardsTurned.forEach((card) => {
-    card.classList.remove("card-turned");
-  });
-  cardsTurned = [];
-};
-
-const gameOver = () => {
-  let playgroundSideCount = gameVariant.playgroundSideCount;
-  if (
-    document.querySelectorAll(".card-out").length ===
-    playgroundSideCount * playgroundSideCount
-  ) {
-    document.getElementById("message").classList.remove("message-hidden");
-  }
-};

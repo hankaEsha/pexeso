@@ -29,17 +29,17 @@ h2 {
 }
 
 h1::after {
-  color: #F2B101;
+  color: #f2b101;
   content: "• •";
-  font-size: 20px;
-  padding-right: 1rem;
   display: block;
+  font-size: 20px;
   text-align: center;
   margin-top: -1rem;
+  padding-right: 1rem;
 }
 
 .x {
-  color: #F2B101;
+  color: #f2b101;
 }
 
 .container {
@@ -75,13 +75,13 @@ h1::after {
 .card-turned {
   /* transition: ; */
   background-image: none;
-  background-color: rgb(255, 0, 0);
+  background-color: #da042b;
   color: hsl(0deg 0% 100%);
 }
 
 .card-out {
   background-image: none;
-  background-color: grey;
+  background-color: #808080;
 }
 
 .subtitle {
@@ -101,7 +101,7 @@ h1::after {
 
 .buttons-container {
   display: flex;
-  justify-content: center;
+  gap: 0.5rem;
   margin-inline: 20rem;
 }
 
@@ -109,7 +109,7 @@ h1::after {
   display: block;
   margin: 1rem auto;
   padding: 0.5rem 1rem;
-  background-color: #F2B101;
+  background-color: #f2b101;
   color: black;
   border: none;
   border-radius: 6px;
