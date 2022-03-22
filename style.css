@@ -102,6 +102,7 @@ h1::after {
 .buttons-container {
   display: flex;
   gap: 0.5rem;
+  justify-content: center;
   margin-inline: 20rem;
 }
 
