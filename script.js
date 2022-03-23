@@ -20,11 +20,64 @@ const gameVariants = {
 };
 
 let cardsTurned = [];
-let gameVariant = gameVariants.medium;
+let gameVariant = gameVariants.small;
 const playground = document.getElementById("playground");
 const message = document.getElementById("message");
 
+const emoji = [
+  "🐶",
+  "🐒",
+  "🦖",
+  "🦞",
+  "🐬",
+  "🐆",
+  "🐈",
+  "🦮",
+  "🦫",
+  "😃",
+  "🥳",
+  "🥶",
+  "😈",
+  "👻",
+  "👀",
+  "🧜🏻‍♀️",
+  "🤦🏼‍♀️",
+  "🤷🏼‍♀️",
+  "👩‍❤️‍👨",
+  "🍀",
+  "🌸",
+  "🌛",
+  "🌍",
+  "🌈",
+  "🌪",
+  "☀️",
+  "☃️",
+  "☂️",
+  "🍓",
+  "🥕",
+  "🍩",
+  "🥂",
+];
+
+
+const playable = () => {
+  if (parseInt(playground.dataset.playable)) {
+    playground.addEventListener("click", game);
+    console.log("can play");
+  } else {
+    console.log("can't play");
+    playground.removeEventListener("click", game);
+  }
+};
+
 const game = (event) => {
+  // console.log("start playground.dataset.playable: ", playground.dataset.playable)
+  // if (parseInt(playground.dataset.playable)){
+  //   playground.addEventListener("click", game);
+  //   console.log("can play");
+  // } else {
+  //   console.log("can't play");
+  // }
   if (
     !event.target.classList.contains("card-turned") &&
     !event.target.classList.contains("card-out")
@@ -32,18 +85,47 @@ const game = (event) => {
     cardsTurned.push(event.target);
     event.target.classList.add("card-turned");
     if (cardsTurned.length === 2) {
+      playground.dataset.playable = 0;
+      playable();
+      console.log(
+        "if playground.dataset.playable: ",
+        playground.dataset.playable
+      );
       if (cardsTurned[0].innerHTML === cardsTurned[1].innerHTML) {
-        for (let i = 0; i < cardsTurned.length; i++) {
-          cardsTurned[i].classList.remove("card-turned");
-          cardsTurned[i].classList.add("card-out");
-        }
-        cardsTurned = [];
+        const turnCardsOut = () => {
+          for (let i = 0; i < cardsTurned.length; i++) {
+            cardsTurned[i].classList.remove("card-turned");
+            cardsTurned[i].classList.add("card-out");
+          }
+          cardsTurned = [];
+        };
+        setTimeout(turnCardsOut, 1000);
+        console.log(
+          "turnCardsOut set Timeout playground.dataset.playable: ",
+          playground.dataset.playable
+        );
+        playground.dataset.playable = 1;
+        setTimeout(playable, 1000);
+        console.log(
+          "turnCardsOut set Timeout playground.dataset.playable: ",
+          playground.dataset.playable
+        );
       } else {
-        setTimeout(turnCardsBack, 1000);
+        setTimeout(turnCardsBack, 1500);
+        console.log(
+          "turnCardsBack set Timeout playground.dataset.playable: ",
+          playground.dataset.playable
+        );
+        playground.dataset.playable = 1;
+        setTimeout(playable, 1500);
+        console.log(
+          "turnCardsBack set Timeout playground.dataset.playable: ",
+          playground.dataset.playable
+        );
       }
     }
   }
-  gameOver();
+  setTimeout(gameOver, 1500);
 };
 
 const turnCardsBack = () => {
@@ -64,30 +146,34 @@ const gameOver = () => {
 };
 
 const generatePlayground = (size) => {
+  // clear the playground
   message.classList.add("message-hidden");
   playground.innerHTML = "";
   let numbersList = [];
+  // push emojis from the emoji array into the numbersList - 8x in medium version
   for (let i = 0; i < size; i++) {
     numbersList.push(0);
   }
+  // create card elements 2*8 in medium version
   for (let i = 0; i < 2 * size; i++) {
     let div = document.createElement("div");
     playground.appendChild(div).classList.add("card");
   }
-
+  // select all created cards
   let cards = document.querySelectorAll(".card");
+  // cycle through all card elements
   for (let card of cards) {
-    let number = Math.floor(Math.random() * size);
+    // get a random number up to 8 in medium version
+    let number = Math.floor(Math.random() * size); // *2
+    // generate new random number and use it as an index till the time all icons are included twice
     while (numbersList[number] === 2) {
       number = Math.floor(Math.random() * size);
     }
     numbersList[number]++;
-    card.innerHTML = number + 1;
+    card.innerHTML = emoji[number];
   }
-
-  for (let card of cards) {
-    card.addEventListener("click", game);
-  }
+  playground.dataset.playable = 1;
+  playable();
 };
 
 const play = (event) => {
@@ -105,17 +191,18 @@ const play = (event) => {
   generatePlayground((playgroundSideCount * playgroundSideCount) / 2);
 };
 
-const generateGameVariantButton = () => 
-{for (const variant in gameVariants) {
-  // Create a new, plain <button> element
-  let gameVariantButton = document.createElement("button");
-  gameVariantButton.innerHTML = gameVariants[variant].buttonText;
-  gameVariantButton.classList.add("reset-button");
-  gameVariantButton.dataset.gameVariant = variant;
-  gameVariantButton.addEventListener("click", play);
-  // Get the parent element and insert the button element
-  document.getElementById("buttons-container").appendChild(gameVariantButton);
-}};
+const generateGameVariantButton = () => {
+  for (const variant in gameVariants) {
+    // Create a new, plain <button> element
+    let gameVariantButton = document.createElement("button");
+    gameVariantButton.innerHTML = gameVariants[variant].buttonText;
+    gameVariantButton.classList.add("reset-button");
+    gameVariantButton.dataset.gameVariant = variant;
+    gameVariantButton.addEventListener("click", play);
+    // Get the parent element and insert the button element
+    document.getElementById("buttons-container").appendChild(gameVariantButton);
+  }
+};
 
 generateGameVariantButton();
 play();
