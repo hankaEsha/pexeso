@@ -34,8 +34,8 @@ h1::after {
   display: block;
   font-size: 20px;
   text-align: center;
-  margin-top: -1rem;
-  padding-right: 1rem;
+  margin-top: -1.3rem;
+  padding-right: 1.3rem;
 }
 
 .x {
@@ -68,7 +68,22 @@ h1::after {
   transition-property: all;
   transition-timing-function: ease-in-out;
   display: flex;
-  background-image: linear-gradient(to right, #008000, #009400, #008000);
+  background-image: 
+    linear-gradient(
+      to right,
+      hsl(120deg 100% 25% / 50%),
+      hsl(120deg 100% 29% / 50%),
+      hsl(120deg 100% 25% / 50%)
+    ),
+    url("x.min.svg"), 
+    linear-gradient(to right,
+    hsl(120deg 100% 25% / 100%),
+    hsl(120deg 100% 29% / 100%),
+    hsl(120deg 100% 25% / 100%)
+    );
+  background-size: auto, 25%, auto;
+  background-repeat: repeat, no-repeat, repeat;
+  background-position: center;
   font-size: 3rem;
   align-items: center;
   justify-content: center;
