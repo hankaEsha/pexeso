@@ -59,38 +59,19 @@ const emoji = [
   "🥂",
 ];
 
-
-const playable = () => {
-  if (parseInt(playground.dataset.playable)) {
-    playground.addEventListener("click", game);
-    console.log("can play");
-  } else {
-    console.log("can't play");
-    playground.removeEventListener("click", game);
-  }
-};
+let playable = true;
 
 const game = (event) => {
-  // console.log("start playground.dataset.playable: ", playground.dataset.playable)
-  // if (parseInt(playground.dataset.playable)){
-  //   playground.addEventListener("click", game);
-  //   console.log("can play");
-  // } else {
-  //   console.log("can't play");
-  // }
+  console.log(event.target, event.currentTarget);
   if (
+    playable &&
     !event.target.classList.contains("card-turned") &&
     !event.target.classList.contains("card-out")
   ) {
     cardsTurned.push(event.target);
     event.target.classList.add("card-turned");
     if (cardsTurned.length === 2) {
-      playground.dataset.playable = 0;
-      playable();
-      console.log(
-        "if playground.dataset.playable: ",
-        playground.dataset.playable
-      );
+      playable = false;
       if (cardsTurned[0].innerHTML === cardsTurned[1].innerHTML) {
         const turnCardsOut = () => {
           for (let i = 0; i < cardsTurned.length; i++) {
@@ -98,39 +79,21 @@ const game = (event) => {
             cardsTurned[i].classList.add("card-out");
           }
           cardsTurned = [];
+          playable = true;
+          gameOver();
         };
-        setTimeout(turnCardsOut, 1000);
-        console.log(
-          "turnCardsOut set Timeout playground.dataset.playable: ",
-          playground.dataset.playable
-        );
-        playground.dataset.playable = 1;
-        setTimeout(playable, 1000);
-        console.log(
-          "turnCardsOut set Timeout playground.dataset.playable: ",
-          playground.dataset.playable
-        );
+        setTimeout(turnCardsOut, 500);
       } else {
-        setTimeout(turnCardsBack, 1500);
-        console.log(
-          "turnCardsBack set Timeout playground.dataset.playable: ",
-          playground.dataset.playable
-        );
-        playground.dataset.playable = 1;
-        setTimeout(playable, 1500);
-        console.log(
-          "turnCardsBack set Timeout playground.dataset.playable: ",
-          playground.dataset.playable
-        );
+        setTimeout(turnCardsBack, 500);
       }
     }
   }
-  setTimeout(gameOver, 1500);
 };
 
 const turnCardsBack = () => {
   cardsTurned.forEach((card) => {
     card.classList.remove("card-turned");
+    playable = true;
   });
   cardsTurned = [];
 };
@@ -172,8 +135,6 @@ const generatePlayground = (size) => {
     numbersList[number]++;
     card.innerHTML = emoji[number];
   }
-  playground.dataset.playable = 1;
-  playable();
 };
 
 const play = (event) => {
@@ -204,5 +165,6 @@ const generateGameVariantButton = () => {
   }
 };
 
+playground.addEventListener("click", game);
 generateGameVariantButton();
 play();
