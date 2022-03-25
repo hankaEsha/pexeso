@@ -20,7 +20,7 @@ const gameVariants = {
 };
 
 let cardsTurned = [];
-let gameVariant = gameVariants.small;
+let gameVariant = gameVariants.medium;
 const playground = document.getElementById("playground");
 const message = document.getElementById("message");
 
