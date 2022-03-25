@@ -80,7 +80,8 @@ const game = (event) => {
   // }
   if (
     !event.target.classList.contains("card-turned") &&
-    !event.target.classList.contains("card-out")
+    !event.target.classList.contains("card-out") &&
+    event.target.classList.contains("card")
   ) {
     cardsTurned.push(event.target);
     event.target.classList.add("card-turned");
