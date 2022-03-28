@@ -29,18 +29,19 @@ h2 {
   margin-top: 0;
 }
 
-h1::after {
+.x {
+  position: relative;
   color: #f2b101;
-  content: "• •";
-  display: block;
-  font-size: 20px;
-  text-align: center;
-  margin-top: -1.3rem;
-  padding-right: 1.3rem;
 }
 
-.x {
+.x::after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
   color: #f2b101;
+  content: "••";
+  font-size: 0.3em;
+  letter-spacing: 0.7em;
 }
 
 .container {
