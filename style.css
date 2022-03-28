@@ -55,23 +55,23 @@ h2 {
 
 .container-small {
   grid-template: repeat(2, 1fr) / repeat(2, 1fr);
-  max-width: 10rem;
+  max-width: 12rem;
 }
 
 .container-medium {
   grid-template-columns: repeat(4, 1fr);
-  max-width: 18rem;
+  max-width: 20rem;
 }
 
 .container-large {
   grid-template-columns: repeat(4, 1fr);
-  max-width: 18rem;
+  max-width: 20rem;
 }
 
 @media (min-width: 768px) {
   .container-large {
     grid-template: repeat(8, 1fr) / repeat(8, 1fr);
-    max-width: 45rem;
+    max-width: 40rem;
   }
 }
 
