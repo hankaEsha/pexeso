@@ -34,6 +34,15 @@ const emoji = [
   "🐈",
   "🦮",
   "🦄",
+  "❤️",
+  "🍀",
+  "🌸",
+  "🌛",
+  "🌍",
+  "🌈",
+  "🌞",
+  "💥",
+  "☃️",
   "😃",
   "🥳",
   "🥶",
@@ -43,15 +52,6 @@ const emoji = [
   "🧜🏻‍♀️",
   "🤦🏼‍♀️",
   "🤷🏼‍♀️",
-  "👩‍❤️‍👨",
-  "🍀",
-  "🌸",
-  "🌛",
-  "🌍",
-  "🌈",
-  "🌪",
-  "☀️",
-  "☃️",
   "☂️",
   "🍓",
   "🥕",
@@ -61,7 +61,7 @@ const emoji = [
 
 let playable = true;
 
-const handleOneMove = (event) => {
+const handleMove = (event) => {
   console.log(event.target, event.currentTarget);
   if (
     playable &&
@@ -135,7 +135,7 @@ const generatePlayground = (size) => {
     numbersList[number]++;
     card.innerHTML = emoji[number];
   }
-  playground.addEventListener("click", handleOneMove);
+  playground.addEventListener("click", handleMove);
 };
 
 const startGame = (event) => {
