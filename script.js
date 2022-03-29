@@ -61,7 +61,7 @@ const emoji = [
 
 let playable = true;
 
-const game = (event) => {
+const handleOneMove = (event) => {
   console.log(event.target, event.currentTarget);
   if (
     playable &&
@@ -75,28 +75,27 @@ const game = (event) => {
       playable = false;
       if (cardsTurned[0].innerHTML === cardsTurned[1].innerHTML) {
         const turnCardsOut = () => {
-          for (let i = 0; i < cardsTurned.length; i++) {
-            cardsTurned[i].classList.remove("card-turned");
-            cardsTurned[i].classList.add("card-out");
-          }
+          cardsTurned.forEach((card) => {
+            card.classList.remove("card-turned");
+            card.classList.add("card-out");
+          });
           cardsTurned = [];
           playable = true;
           gameOver();
         };
         setTimeout(turnCardsOut, 500);
       } else {
+        const turnCardsBack = () => {
+          cardsTurned.forEach((card) => {
+            card.classList.remove("card-turned");
+          });
+          cardsTurned = [];
+          playable = true;
+        };
         setTimeout(turnCardsBack, 500);
       }
     }
   }
-};
-
-const turnCardsBack = () => {
-  cardsTurned.forEach((card) => {
-    card.classList.remove("card-turned");
-    playable = true;
-  });
-  cardsTurned = [];
 };
 
 const gameOver = () => {
@@ -136,9 +135,10 @@ const generatePlayground = (size) => {
     numbersList[number]++;
     card.innerHTML = emoji[number];
   }
+  playground.addEventListener("click", handleOneMove);
 };
 
-const play = (event) => {
+const startGame = (event) => {
   if (event) {
     gameVariant = gameVariants[event.target.dataset.gameVariant];
   }
@@ -153,19 +153,18 @@ const play = (event) => {
   generatePlayground((playgroundSideCount * playgroundSideCount) / 2);
 };
 
-const generateGameVariantButton = () => {
+const generateGameVariantButtons = () => {
   for (const variant in gameVariants) {
     // Create a new, plain <button> element
     let gameVariantButton = document.createElement("button");
     gameVariantButton.innerHTML = gameVariants[variant].buttonText;
     gameVariantButton.classList.add("reset-button");
     gameVariantButton.dataset.gameVariant = variant;
-    gameVariantButton.addEventListener("click", play);
+    gameVariantButton.addEventListener("click", startGame);
     // Get the parent element and insert the button element
     document.getElementById("buttons-container").appendChild(gameVariantButton);
   }
 };
 
-playground.addEventListener("click", game);
-generateGameVariantButton();
-play();
+generateGameVariantButtons();
+startGame();
