@@ -128,7 +128,6 @@ const generatePlayground = (size) => {
     playground.appendChild(div).classList.add("card");
     div.innerHTML = emoji;
   });
-  playground.addEventListener("click", handleMove);
 };
 
 const startGame = (event) => {
@@ -159,5 +158,6 @@ const generateGameVariantButtons = () => {
   }
 };
 
+playground.addEventListener("click", handleMove);
 generateGameVariantButtons();
 startGame();
