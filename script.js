@@ -107,33 +107,27 @@ const gameOver = () => {
   }
 };
 
+const shuffleArray = (arr) => {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+};
+
 const generatePlayground = (size) => {
+  cardsCount = size * size;
   // clear the playground
   message.classList.add("message-hidden");
   playground.innerHTML = "";
-  let numbersList = [];
-  // push emojis from the emoji array into the numbersList - 8x in medium version
-  for (let i = 0; i < size; i++) {
-    numbersList.push(0);
-  }
-  // create card elements 2*8 in medium version
-  for (let i = 0; i < 2 * size; i++) {
+
+  let emojiToPutOnCards = shuffleArray([...emoji.slice(0, cardsCount/2), ...emoji.slice(0, cardsCount/2)]);
+
+  emojiToPutOnCards.forEach((emoji) => {
     let div = document.createElement("div");
     playground.appendChild(div).classList.add("card");
-  }
-  // select all created cards
-  let cards = document.querySelectorAll(".card");
-  // cycle through all card elements
-  for (let card of cards) {
-    // get a random number up to 8 in medium version
-    let number = Math.floor(Math.random() * size); // *2
-    // generate new random number and use it as an index till the time all icons are included twice
-    while (numbersList[number] === 2) {
-      number = Math.floor(Math.random() * size);
-    }
-    numbersList[number]++;
-    card.innerHTML = emoji[number];
-  }
+    div.innerHTML = emoji;
+  });
   playground.addEventListener("click", handleMove);
 };
 
@@ -149,7 +143,7 @@ const startGame = (event) => {
   );
   playground.classList.add(gameVariant.className);
   document.getElementById("subtitle").innerHTML = gameVariant.subtitle;
-  generatePlayground((playgroundSideCount * playgroundSideCount) / 2);
+  generatePlayground(playgroundSideCount);
 };
 
 const generateGameVariantButtons = () => {
