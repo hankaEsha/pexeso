@@ -61,6 +61,21 @@ const emoji = [
 
 let playable = true;
 
+
+const turnCards = (isTurnOut) => {
+  cardsTurned.forEach((card) => {
+    card.classList.remove("card-turned");
+    if(isTurnOut){
+      card.classList.add("card-out");
+    }
+  });
+  cardsTurned = [];
+  playable = true;
+  if(isTurnOut){
+    gameOver();
+  }
+};
+
 const handleMove = (event) => {
   console.log(event.target, event.currentTarget);
   if (
@@ -74,25 +89,9 @@ const handleMove = (event) => {
     if (cardsTurned.length === 2) {
       playable = false;
       if (cardsTurned[0].innerHTML === cardsTurned[1].innerHTML) {
-        const turnCardsOut = () => {
-          cardsTurned.forEach((card) => {
-            card.classList.remove("card-turned");
-            card.classList.add("card-out");
-          });
-          cardsTurned = [];
-          playable = true;
-          gameOver();
-        };
-        setTimeout(turnCardsOut, 500);
+        setTimeout(turnCards, 500, true);
       } else {
-        const turnCardsBack = () => {
-          cardsTurned.forEach((card) => {
-            card.classList.remove("card-turned");
-          });
-          cardsTurned = [];
-          playable = true;
-        };
-        setTimeout(turnCardsBack, 500);
+        setTimeout(turnCards, 500);
       }
     }
   }
