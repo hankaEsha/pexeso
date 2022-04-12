@@ -11,7 +11,7 @@ html {
 body {
     background-color: #f5f5f5;
     color: #2a2b2e;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-family: "Nunito", "Arial Rounded", "Arial", sans-serif;
 }
 
@@ -21,13 +21,13 @@ h2 {
 }
 
 h1 {
-    font-size: 4rem;
-    margin-top: 4rem;
+    font-size: 3.5rem;
+    margin-top: 3rem;
     margin-bottom: 0;
 }
 
 h2 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin-top: 0;
 }
 
@@ -58,23 +58,23 @@ h2 {
 
 .container-small {
     grid-template: repeat(2, 1fr) / repeat(2, 1fr);
-    max-width: 12rem;
+    max-width: 10rem;
 }
 
 .container-medium {
     grid-template-columns: repeat(4, 1fr);
-    max-width: 20rem;
+    max-width: 18rem;
 }
 
 .container-large {
     grid-template-columns: repeat(4, 1fr);
-    max-width: 20rem;
+    max-width: 18rem;
 }
 
 @media (min-width: 768px) {
     .container-large {
         grid-template: repeat(8, 1fr) / repeat(8, 1fr);
-        max-width: 40rem;
+        max-width: 20rem;
     }
 }
 
@@ -100,7 +100,7 @@ h2 {
     background-size: auto, 25%, auto;
     background-repeat: repeat, no-repeat, repeat;
     background-position: center;
-    font-size: 3rem;
+    font-size: 2.8rem;
     align-items: center;
     justify-content: center;
     color: hsl(0deg 0% 100% / 0%);
@@ -122,10 +122,11 @@ h2 {
 }
 
 .subtitle {
-    font-size: clamp(1rem, 0.9333rem + 0.2963vw, 1.2rem);
+    /* font-size: clamp(0.8rem, 0.7000rem + 0.4444vw, 1.1rem); */
     color: #008000;
     text-align: center;
-    margin-top: 3rem;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
 }
 
 .message {
@@ -158,10 +159,10 @@ h2 {
 }
 
 .reset-button {
-    font-size: clamp(1rem, 0.9667rem + 0.1481vw, 1.1rem);
+    font-size: clamp(0.7rem, 0.6000rem + 0.4444vw, 1rem);
     font-family: inherit;
     display: block;
-    margin: 1rem auto;
+    margin: 0.6rem auto;
     padding: 0.5rem 1rem;
     background-color: #f2b101;
     color: black;
