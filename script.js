@@ -124,21 +124,21 @@ const generatePlayground = (size) => {
         ...emoji.slice(0, cardsCount / 2),
     ]);
     // ** used only for debug mode below **
-    let cards = [];
+    // let cards = [];
     emojiToPutOnCards.forEach((emoji) => {
         let card = document.createElement("div");
         playground.appendChild(card).classList.add("card");
         card.innerHTML = emoji;
         // ** used only for debug mode below **
-        cards.push(card);
+        // cards.push(card);
     });
     // ** debug mode to left only 2 playable cards **
-    cards[0].innerHTML = "🌈";
-    cards[1].innerHTML = "🌈";
-    let cardsSlice = cards.slice(2);
-    cardsSlice.forEach((card) => {
-        card.classList.add("card-out");
-    });
+    // cards[0].innerHTML = "🌈";
+    // cards[1].innerHTML = "🌈";
+    // let cardsSlice = cards.slice(2);
+    // cardsSlice.forEach((card) => {
+    //     card.classList.add("card-out");
+    // });
 };
 
 const startGame = (event) => {
