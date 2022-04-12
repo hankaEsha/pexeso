@@ -22,7 +22,6 @@ const gameVariants = {
 let cardsTurned = [];
 let gameVariant = gameVariants.medium;
 const playground = document.getElementById("playground");
-const message = document.getElementById("message");
 
 const emoji = [
     "🐶",
@@ -76,7 +75,6 @@ const turnCards = (isTurnOut) => {
 };
 
 const handleMove = (event) => {
-    console.log(event.target, event.currentTarget);
     if (
         playable &&
         !event.target.classList.contains("card-turned") &&
@@ -102,7 +100,9 @@ const gameOver = () => {
         document.querySelectorAll(".card-out").length ===
         playgroundSideCount * playgroundSideCount
     ) {
-        message.classList.remove("message-hidden");
+        let winMessage = document.createElement("div");
+        playground.appendChild(winMessage).classList.add("win-message");
+        winMessage.innerHTML = "Výhra! 🎆";
     }
 };
 
@@ -117,18 +117,27 @@ const shuffleArray = (arr) => {
 const generatePlayground = (size) => {
     cardsCount = size * size;
     // clear the playground
-    message.classList.add("message-hidden");
     playground.innerHTML = "";
     shuffleArray(emoji);
     let emojiToPutOnCards = shuffleArray([
         ...emoji.slice(0, cardsCount / 2),
         ...emoji.slice(0, cardsCount / 2),
     ]);
-
+    // ** used only for debug mode below **
+    let cards = [];
     emojiToPutOnCards.forEach((emoji) => {
-        let div = document.createElement("div");
-        playground.appendChild(div).classList.add("card");
-        div.innerHTML = emoji;
+        let card = document.createElement("div");
+        playground.appendChild(card).classList.add("card");
+        card.innerHTML = emoji;
+        // ** used only for debug mode below **
+        cards.push(card);
+    });
+    // ** debug mode to left only 2 playable cards **
+    cards[0].innerHTML = "🌈";
+    cards[1].innerHTML = "🌈";
+    let cardsSlice = cards.slice(2);
+    cardsSlice.forEach((card) => {
+        card.classList.add("card-out");
     });
 };
 

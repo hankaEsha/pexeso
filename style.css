@@ -53,6 +53,7 @@ h2 {
     margin-bottom: 1.5rem;
     margin-inline: auto;
     justify-content: center;
+    position: relative;
 }
 
 .container-small {
@@ -133,8 +134,18 @@ h2 {
     margin-top: 1rem;
 }
 
-.message-hidden {
-    display: none;
+.win-message {
+    font-size: clamp(1.5rem, 0.9333rem + 0.2963vw, 1rem);
+    background-color: hsla(43, 97%, 73%, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 2.5rem;
+    left: 2.5rem;
+    right: 2.5rem;
+    bottom: 2.5rem;
+    border-radius: 6px;
 }
 
 .buttons-container {
