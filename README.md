@@ -6,6 +6,6 @@ Simple memory game in vanilla JavaScript.
 
 CSS grid used for the playground.
 
-All graphics desing created from scratch.
+All graphics desing created from scratch, fully responsive.
 
 Good fun for both children and adults :)
