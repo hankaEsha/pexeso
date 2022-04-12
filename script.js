@@ -119,7 +119,7 @@ const generatePlayground = (size) => {
     // clear the playground
     message.classList.add("message-hidden");
     playground.innerHTML = "";
-
+    shuffleArray(emoji);
     let emojiToPutOnCards = shuffleArray([
         ...emoji.slice(0, cardsCount / 2),
         ...emoji.slice(0, cardsCount / 2),
