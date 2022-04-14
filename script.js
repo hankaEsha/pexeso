@@ -123,22 +123,12 @@ const generatePlayground = (size) => {
         ...emoji.slice(0, cardsCount / 2),
         ...emoji.slice(0, cardsCount / 2),
     ]);
-    // ** used only for debug mode below **
-    // let cards = [];
+
     emojiToPutOnCards.forEach((emoji) => {
         let card = document.createElement("div");
         playground.appendChild(card).classList.add("card");
         card.innerHTML = emoji;
-        // ** used only for debug mode below **
-        // cards.push(card);
     });
-    // ** debug mode to left only 2 playable cards **
-    // cards[0].innerHTML = "🌈";
-    // cards[1].innerHTML = "🌈";
-    // let cardsSlice = cards.slice(2);
-    // cardsSlice.forEach((card) => {
-    //     card.classList.add("card-out");
-    // });
 };
 
 const startGame = (event) => {
@@ -154,7 +144,20 @@ const startGame = (event) => {
     playground.classList.add(gameVariant.className);
     document.getElementById("subtitle").innerHTML = gameVariant.subtitle;
     generatePlayground(playgroundSideCount);
+    debug();
 };
+
+// ** debug mode to leave only 2 playable cards **
+// const debug = () => {
+//     console.log(playground.children);
+//     let cards = [...playground.children];
+//     cards[0].innerHTML = "🌈";
+//     cards[1].innerHTML = "🌈";
+//     let cardsSlice = cards.slice(2);
+//     cardsSlice.forEach((card) => {
+//         card.classList.add("card-out");
+//     });
+// };
 
 const generateGameVariantButtons = () => {
     for (const variant in gameVariants) {
