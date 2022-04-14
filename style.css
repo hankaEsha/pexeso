@@ -15,20 +15,34 @@ body {
     font-family: "Nunito", "Arial Rounded", "Arial", sans-serif;
 }
 
-h1,
-h2 {
-    text-align: center;
-}
-
 h1 {
-    font-size: 3.5rem;
+    font-size: 3.8rem;
+    text-align: center;
     margin-top: 3rem;
     margin-bottom: 0;
 }
 
-h2 {
+.container-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-inline: auto;
+    max-width: max-content;
+}
+
+.subheading {
     font-size: 1.3rem;
-    margin-top: 0;
+    font-weight: 700;
+    text-align: center;
+    margin-top: -0.3rem;
+    margin-bottom: -0.2rem;
+}
+
+.tested {
+    font-size: 0.5rem;
+    text-align: center;
+    color: #f2b101;
+    margin-block: 0;
 }
 
 .x {
@@ -46,14 +60,16 @@ h2 {
     letter-spacing: 0.7em;
 }
 
-.container {
+.container-playground {
     display: grid;
     grid-gap: 6px;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     margin-inline: auto;
     justify-content: center;
     position: relative;
+    user-select: none;
+    cursor: pointer;
 }
 
 .container-small {
@@ -112,7 +128,7 @@ h2 {
     transition-timing-function: ease-in-out;
     background-image: none;
     background-color: #da042b;
-    color: hsl(0deg 0% 100%);
+    color: #ffffff;
 }
 
 .card-out {
@@ -122,10 +138,10 @@ h2 {
 }
 
 .subtitle {
-    font-size: clamp(0.8rem, 0.7000rem + 0.4444vw, 1.1rem);
+    font-size: clamp(0.8rem, 0.7rem + 0.4444vw, 1.1rem);
     color: #008000;
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 1.8rem;
     margin-bottom: 0.5rem;
 }
 
@@ -137,7 +153,7 @@ h2 {
 
 .win-message {
     font-size: clamp(1rem, 0.8333rem + 0.7407vw, 1.5rem);
-    background-color: hsla(43, 97%, 73%, 0.8);
+    background-color: #f2b101;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -159,13 +175,13 @@ h2 {
 }
 
 .reset-button {
-    font-size: clamp(0.7rem, 0.6rem + 0.4444vw, 1rem);
+    font-size: clamp(0.8rem, 0.7rem + 0.4444vw, 1.1rem);
     font-family: inherit;
     display: block;
     margin: 0.6rem auto;
     padding: 0.5rem 1rem;
     background-color: #f2b101;
-    color: black;
+    color: #000000;
     border: none;
     border-radius: 6px;
     cursor: pointer;
