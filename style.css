@@ -74,7 +74,7 @@ h2 {
 @media (min-width: 768px) {
     .container-large {
         grid-template: repeat(8, 1fr) / repeat(8, 1fr);
-        max-width: 20rem;
+        max-width: 40rem;
     }
 }
 
@@ -136,16 +136,16 @@ h2 {
 }
 
 .win-message {
-    font-size: clamp(1.5rem, 0.9333rem + 0.2963vw, 1rem);
+    font-size: clamp(1rem, 0.8333rem + 0.7407vw, 1.5rem);
     background-color: hsla(43, 97%, 73%, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 2.5rem;
-    left: 2.5rem;
-    right: 2.5rem;
-    bottom: 2.5rem;
+    top: 1.2rem;
+    left: 1.2rem;
+    right: 1.2rem;
+    bottom: 1.2rem;
     border-radius: 6px;
 }
 
@@ -159,7 +159,7 @@ h2 {
 }
 
 .reset-button {
-    font-size: clamp(0.7rem, 0.6000rem + 0.4444vw, 1rem);
+    font-size: clamp(0.7rem, 0.6rem + 0.4444vw, 1rem);
     font-family: inherit;
     display: block;
     margin: 0.6rem auto;
