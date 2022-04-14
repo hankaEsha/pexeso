@@ -122,7 +122,7 @@ h2 {
 }
 
 .subtitle {
-    /* font-size: clamp(0.8rem, 0.7000rem + 0.4444vw, 1.1rem); */
+    font-size: clamp(0.8rem, 0.7000rem + 0.4444vw, 1.1rem);
     color: #008000;
     text-align: center;
     margin-top: 2rem;
