@@ -15,20 +15,33 @@ body {
     font-family: "Nunito", "Arial Rounded", "Arial", sans-serif;
 }
 
-h1,
-h2 {
-    text-align: center;
-}
-
 h1 {
     font-size: 3.5rem;
+    text-align: center;
     margin-top: 3rem;
     margin-bottom: 0;
 }
 
-h2 {
+.container-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-inline: auto;
+    max-width: max-content;
+}
+
+.subheading {
     font-size: 1.3rem;
-    margin-top: 0;
+    font-weight: 700;
+    text-align: center;
+    margin-block: 0rem;
+}
+
+.tested {
+    font-size: 0.7rem;
+    text-align: center;
+    color: #f2b101;
+    margin-block: -0.3rem;
 }
 
 .x {
@@ -122,10 +135,10 @@ h2 {
 }
 
 .subtitle {
-    font-size: clamp(0.8rem, 0.7000rem + 0.4444vw, 1.1rem);
+    font-size: clamp(0.8rem, 0.7rem + 0.4444vw, 1.1rem);
     color: #008000;
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 1.8rem;
     margin-bottom: 0.5rem;
 }
 
