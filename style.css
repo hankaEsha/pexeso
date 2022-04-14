@@ -112,7 +112,7 @@ h2 {
     transition-timing-function: ease-in-out;
     background-image: none;
     background-color: #da042b;
-    color: hsl(0deg 0% 100%);
+    color: #ffffff;
 }
 
 .card-out {
@@ -137,7 +137,7 @@ h2 {
 
 .win-message {
     font-size: clamp(1rem, 0.8333rem + 0.7407vw, 1.5rem);
-    background-color: hsla(43, 97%, 73%, 0.8);
+    background-color: #f2b101;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -165,7 +165,7 @@ h2 {
     margin: 0.6rem auto;
     padding: 0.5rem 1rem;
     background-color: #f2b101;
-    color: black;
+    color: #000000;
     border: none;
     border-radius: 6px;
     cursor: pointer;
